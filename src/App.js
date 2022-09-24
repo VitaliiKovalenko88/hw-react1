@@ -1,27 +1,17 @@
-import { Profile } from "./components/Profile";
-import { Statistics } from "./components/Statistics";
-import { FriendList } from "./components/FriendList";
-import { TransactionHistory } from "./components/Transactoins";
-import data from "./Data/staticsData";
-import user from "./Data/profileDate";
-import friends from "./Data/friends"
-import transactions from "./Data/transactions"
+import { Routes, Route } from "react-router-dom";
+// import { HomeWorkeFirst } from "pages/HomeWorkeFirst"
+import  HomeWorks  from "pages/HomeWorks";
+// import HomeWorkeSecond from "pages/HomeWorkSecond";
+import {HomeWorksList} from "components/hw_1/HomeWorksList";
+
 
 export const App = () => {
-  const { username, tag, location, avatar, stats } = user;
-  
-  return <>
-    <Profile
-      username={username}
-      tag={tag}
-      location={location}
-      avatar={avatar}
-      stats={stats}
-    />
-    <Statistics title="Upload stats" stats={data} />
-    <Statistics stats={data} />
-    <FriendList friends={friends} />
-    <TransactionHistory items={transactions} />
-  </> 
-    
- };
+  return <div>
+    <Routes>
+      <Route path="/" element={<HomeWorks />} />
+      <Route path="/homeWorks" element={<HomeWorksList />} />
+      <Route path="/homeWorks/:worksId" element={<HomeWorksList/> } />
+      <Route path="*" element={<HomeWorks />} />
+      </Routes>  
+  </div>
+}
