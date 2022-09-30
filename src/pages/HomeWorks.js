@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom"
+import { HomeWorksList } from "components/HomeWorksList";
+import { getWorks } from "Data/homeWorksData";
 
-export default function HomeWorks  () {
+
+export default function HomeWorks() {
+  const works = getWorks();
+  
   return (
-  <>
-      <Link to="/HomeWorks">Home Works</Link>
-      {/* <Link to="/hw-2">Home Worke 2</Link> */}
-  </>)  
+  <main>
+      <HomeWorksList works={works} />
+      
+  </main>)  
 }

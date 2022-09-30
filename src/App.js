@@ -1,17 +1,24 @@
 import { Routes, Route } from "react-router-dom";
-// import { HomeWorkeFirst } from "pages/HomeWorkeFirst"
+import { NavLink } from "react-router-dom";
 import  HomeWorks  from "pages/HomeWorks";
-// import HomeWorkeSecond from "pages/HomeWorkSecond";
-import {HomeWorksList} from "components/hw_1/HomeWorksList";
+import { HomePage } from "pages/Home";
+import { WorkDetails } from "pages/WorkDetails";
 
 
 export const App = () => {
   return <div>
+    <header>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/homeWorks">Home Works</NavLink>
+      </nav>
+    </header>
     <Routes>
-      <Route path="/" element={<HomeWorks />} />
-      <Route path="/homeWorks" element={<HomeWorksList />} />
-      <Route path="/homeWorks/:worksId" element={<HomeWorksList/> } />
-      <Route path="*" element={<HomeWorks />} />
+      <Route path="/" element={<HomePage/>} />
+      <Route path="/homeWorks" element={<HomeWorks />} />
+      <Route path="/homeWorks/:worksId" element={<WorkDetails />} />
+      
+      <Route path="*" element={<HomePage />} />
       </Routes>  
   </div>
 }

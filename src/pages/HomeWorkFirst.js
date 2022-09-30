@@ -1,13 +1,13 @@
-import { Profile } from "../components/Profile";
-import { Statistics } from "../components/Statistics";
+import { Profile } from "../components/hw_1/Profile";
+import { Statistics } from "../components/hw_1/Statistics";
 import { FriendList } from "../components/hw_1/FriendList";
-import { TransactionHistory } from "../components/Transactoins";
+import { TransactionHistory } from "../components/hw_1/Transactoins";
 import data from "../Data/staticsData";
 import user from "../Data/profileDate";
 import friends from "../Data/friends"
 import transactions from "../Data/transactions"
 
-export const HomeWorkeFirst = () => {
+export const HomeWorkFirst = () => {
   const { username, tag, location, avatar, stats } = user;
   
   return <>
