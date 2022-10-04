@@ -1,7 +1,8 @@
-/* eslint-disable jsx-a11y/heading-has-content */
-/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { Component } from "react";
 import { FeedbackBtn } from "components/hw-2/FeedbackBtn/FeedbackBtn";
+import Statistics from "components/hw-2/Statistics/Statistics";
+import Section from "../../components/hw-2/Section/Section";
+import Notification from "components/hw-2/Notification/Notification";
 
 export default class HomeWorkeSecond extends Component {
 
@@ -11,34 +12,50 @@ export default class HomeWorkeSecond extends Component {
     bad: 0,
   }
 
-  countFeedback(e) {
-   
+  countFeedback= (e) => {
+    // console.log(this.setState)
+    this.setState(prevState => ({
+      // console.log([e.target.textContent])
+      [e.target.textContent]: prevState[e.target.textContent] + 1
+    }))
   }
 
-  countTotalFeedback() { }
+  countTotalFeedback = () => 
+   this.state.good + this.state.bad + this.state.neutral;
   
-  countPositiveFeedbackPercentage() {}
-
+    
+   
+  
+  countPositiveFeedbackPercentage =() => 
+    this.state.good === 0
+      ? this.state.good
+      : Math.round((this.state.good / this.countTotalFeedback()) * 100);
   render() {
-    console.log(this.setState)
+    
+    const feedback = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
     return <div>
+      
       <h1>Please leave feedback</h1>
-      <div>
+      <Section>
         <FeedbackBtn
-          feedback='Good'
-          feedbackOptions={this.countFeedback}/>
-        <FeedbackBtn feedback='Neutral' />
-        <FeedbackBtn feedback='Bad' />
-      </div>
-      <h2>Statistics</h2>
-      <ul>
-        <li>Good: { good}</li>
-        <li>Neutral: {neutral }</li>
-        <li>Bad: {bad}</li>
-        <li>Total:</li>
-        <li>Positive fedback: </li>
-      </ul>
+          feedback={feedback}
+          feedbackOptions={this.countFeedback} />
+      </Section>
+        
+      <Section title={'Statistics'}>
+        {this.countTotalFeedback() === 0
+          ?
+          <Notification message="There is no feedback"/>
+          :
+          <Statistics
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        total={this.countTotalFeedback}
+        positivePercentage={this.countPositiveFeedbackPercentage} />}
+      </Section>
+      
     </div>
   }
 }
