@@ -5,7 +5,7 @@ import { HomePage } from "pages/Home";
 import { WorkDetails } from "pages/WorkDetails";
 import Feedback from "pages/hw_2/Feedback/Feedback";
 import PhoneBook from "pages/hw_2/PhoneBook/PhoneBook";
-;
+
 
 
 export const App = () => {
