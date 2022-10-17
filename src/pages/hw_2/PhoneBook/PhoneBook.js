@@ -16,6 +16,16 @@ export default class PhoneBook extends Component {
 
   generateId = () => nanoid();
 
+  changeFilter = (e) => {
+    this.setState({filter: e.currentTarget.value})
+  }
+
+  getVisibleContacts = () => {
+    const { filter, contacts } = this.state;
+    const normalizeFilter = filter.toLowerCase();
+    contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter))
+  }
+
   handleChange = (e) => {
     const { name, value } = e.currentTarget;
     console.log(value)
