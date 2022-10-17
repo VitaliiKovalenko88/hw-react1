@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 export default class PhoneBook extends Component {
   state = {
     contacts: [],
+    filter: '',
     name: '', 
     number: '',
   }
