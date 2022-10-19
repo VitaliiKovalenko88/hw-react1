@@ -42,17 +42,15 @@ export default class PhoneBook extends Component {
       number,
     }
   
-
     this.setState(prevState => ({ contacts: [dataContacts, ...prevState.contacts] })
-    )
-    
-    
-   
+    )   
   }
 
   
 
   render() {
+    const visibleContacts = this.getVisibleContacts();
+    console.log(visibleContacts)
     return <div>
       <h1>Phonebook</h1>
       <form onSubmit={this.handleSubmit}>
@@ -77,8 +75,8 @@ export default class PhoneBook extends Component {
         <button type="submite">Add contact</button>
       </form> 
       <h2>Contacts</h2>
-      <h3 htmlFor="">Find contacts by name</h3>
-      <input type="text" />
+      <p>Find contacts by name</p>
+      <input type="text" onChange={this.changeFilter}/>
       <ul>
         {this.state.contacts.map(contact => {
           return <li key={contact.id}>{contact.name}: {contact.number}</li>
