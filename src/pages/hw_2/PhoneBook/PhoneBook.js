@@ -23,7 +23,8 @@ export default class PhoneBook extends Component {
   getVisibleContacts = () => {
     const { filter, contacts } = this.state;
     const normalizeFilter = filter.toLowerCase();
-    contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter))
+    
+   return contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter))
   }
 
   handleChange = (e) => {
@@ -76,9 +77,9 @@ export default class PhoneBook extends Component {
       </form> 
       <h2>Contacts</h2>
       <p>Find contacts by name</p>
-      <input type="text" onChange={this.changeFilter}/>
+      <input value={this.filter} onChange={this.changeFilter}/>
       <ul>
-        {this.state.contacts.map(contact => {
+        {this.getVisibleContacts().map(contact => {
           return <li key={contact.id}>{contact.name}: {contact.number}</li>
         })}
       </ul>
