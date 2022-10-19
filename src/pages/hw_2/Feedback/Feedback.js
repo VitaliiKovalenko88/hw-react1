@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { FeedbackBtn } from "components/hw-2/FeedbackBtn/FeedbackBtn";
-import Statistics from "components/hw-2/Statistics/Statistics";
+import { FeedbackBtn } from "components/hw-2/Feedback/FeedbackBtn/FeedbackBtn";
+import Statistics from "components/hw-2/Feedback/Statistics/Statistics";
 import Section from "components/hw-2/Section/Section";
-import Notification from "components/hw-2/Notification/Notification";
+import Notification from "components/hw-2/Feedback/Notification/Notification";
 
 export default class Feedback extends Component {
 
