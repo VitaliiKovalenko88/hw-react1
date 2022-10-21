@@ -1,7 +1,7 @@
-const Filter = () => {
+const Filter = ({value, onChange}) => {
   return <div>
     <p>Find contacts by name</p>
-    <input value={this.filter} onChange={this.changeFilter} />
+    <input value={value} onChange={onChange} />
   </div>
 }
 
