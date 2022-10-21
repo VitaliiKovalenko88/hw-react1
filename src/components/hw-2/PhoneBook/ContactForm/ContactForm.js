@@ -16,14 +16,7 @@ export default class ContactForms extends Component {
 
     const { name, number } = this.state;
 
-    const dataContacts = {
-      id: this.generateId(),
-      name,
-      number,
-    }
-
-    this.setState(prevState => ({ contacts: [dataContacts, ...prevState.contacts] })
-    )
+    this.props.onSubmit(name,number)
   }
 
   render() {
