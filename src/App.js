@@ -4,7 +4,7 @@ import  HomeWorks  from "pages/HomeWorks";
 import { HomePage } from "pages/Home";
 import { WorkDetails } from "pages/WorkDetails";
 import Feedback from "components/hw-2/Feedback/Feedback/Feedback";
-import PhoneBook from "pages/hw_2/PhoneBook/PhoneBook";
+import PhoneBook from "components/hw-2/PhoneBook/PhoneBook/PhoneBook";
 
 
 
