@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 // import { useState } from "react";
 import  {HomeWorkFirst}  from "./hw_1/HomeWorkFirst";
-import HomeWorkeSecond from "./hw_2/HomeWorkSecond";
+import HomeWorkSecond from "./hw_2/HomeWorkSecond";
 
 export const WorkDetails = ({value}) => {
   const { worksId } = useParams();
@@ -15,7 +15,7 @@ export const WorkDetails = ({value}) => {
       null}
    {worksId === "reactClass"
     ?
-    <HomeWorkeSecond />
+    <HomeWorkSecond />
 : null}  
       </main>
   

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import  HomeWorks  from "pages/HomeWorks";
 import { HomePage } from "pages/Home";
 import { WorkDetails } from "pages/WorkDetails";
-import Feedback from "pages/hw_2/Feedback/Feedback";
+import Feedback from "components/hw-2/Feedback/Feedback/Feedback";
 import PhoneBook from "pages/hw_2/PhoneBook/PhoneBook";
 
 
