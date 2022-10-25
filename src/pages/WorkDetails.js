@@ -21,7 +21,8 @@ export const WorkDetails = ({value}) => {
     {worksId === "lifecycles"
       ?
       <HomeWorkThird />
-      : null}
+      :
+      null}
       </main>
   
 }

@@ -30,8 +30,8 @@ export default class Feedback extends Component {
 
     const feedback = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
-    return <div>
-
+    return (
+    <div>
       <h1>Please leave feedback</h1>
       <Section>
         <FeedbackBtn
@@ -51,7 +51,6 @@ export default class Feedback extends Component {
             total={this.countTotalFeedback}
             positivePercentage={this.countPositiveFeedbackPercentage} />}
       </Section>
-
-    </div>
+    </div>)
   }
 }

@@ -4,12 +4,13 @@ const Statistics = ({
   bad,
   total,
   positivePercentage }) => {
-  return <ul>
+  return (
+  <ul>
     <li>Good: {good}</li>
     <li>Neutral: {neutral}</li>
     <li>Bad: {bad}</li>
-    <li>Total: {total()}</li>
-    <li>Positive fedback: {positivePercentage()}%</li>
-  </ul>
+    {/* <li>Total: {total()}</li> */}
+    {/* <li>Positive fedback: {positivePercentage()}%</li> */}
+  </ul>)
 }
 export default Statistics;
