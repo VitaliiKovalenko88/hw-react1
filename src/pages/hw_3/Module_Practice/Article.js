@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import api from "../../../services/api"
 
 axios.defaults.baseURL = "https://hn.algolia.com/api/v1";
 
@@ -24,11 +25,13 @@ class Article extends Component {
 
   async componentDidMount() {
     this.setState({ isLoading: true });
+    console.log(api)
     try {
-      const response = await axios.get("/search?query=react");
-    this.setState({ 
-      articles: response.data.hits });
+      const articles =await api.fetchArticlesWithQuery('react');
+      console.log(articles)
+    this.setState({ articles });
     } catch (error) {
+     
       this.setState({error})
     } finally {
       this.setState({isLoading: false}) 
