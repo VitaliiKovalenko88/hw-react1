@@ -25,10 +25,10 @@ class Article extends Component {
 
   async componentDidMount() {
     this.setState({ isLoading: true });
-    console.log(api)
+    console.log(api.fetchArticlesWithQuery('react'))
     try {
       const articles =await api.fetchArticlesWithQuery('react');
-      console.log(articles)
+      
     this.setState({ articles });
     } catch (error) {
      
