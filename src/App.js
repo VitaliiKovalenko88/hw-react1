@@ -5,6 +5,8 @@ import { HomePage } from "pages/Home";
 import { WorkDetails } from "pages/WorkDetails";
 import Feedback from "components/hw-2/Feedback/Feedback/Feedback";
 import PhoneBook from "components/hw-2/PhoneBook/PhoneBook/PhoneBook";
+import FeedbackHooks from "components/hw_3/Feedback/Feedback";
+
 
 export const App = () => {
   return <div>
@@ -20,6 +22,7 @@ export const App = () => {
       <Route path="/homeWorks/:worksId" element={<WorkDetails />}>
         <Route path="feedback" element={<Feedback/>} />
         <Route path="phonebook" element={<PhoneBook/>}/>
+        <Route path="feedback_lifecycl" element={<FeedbackHooks/>}/>
       </Route>
       
       <Route path="*" element={<HomePage />} />
