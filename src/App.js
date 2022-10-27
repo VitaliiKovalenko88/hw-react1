@@ -5,8 +5,9 @@ import { HomePage } from "pages/Home";
 import { WorkDetails } from "pages/WorkDetails";
 import Feedback from "components/hw-2/Feedback/Feedback/Feedback";
 import PhoneBook from "components/hw-2/PhoneBook/PhoneBook/PhoneBook";
-import PhoneBookLifeCycl from "components/hw_3/PhoneBook/Phonebook";
-import Article from "pages/hw_3/Module_Practice/Article";
+import PhoneBookLifeCycl from "components/hw_3/PhoneBook/PhonebookLifecycl/PhonebookLifrCycl";
+import Article from "components/hw_3/Module_Practice/Article";
+import GallerySearch from "components/hw_3/GallerySearch/GallerySearch";
 
 
 export const App = () => {
@@ -23,7 +24,8 @@ export const App = () => {
       <Route path="/homeWorks/:worksId" element={<WorkDetails />}>
         <Route path="feedback" element={<Feedback/>} />
         <Route path="phonebook" element={<PhoneBook/>}/>
-        <Route path="feedback_lifecycl" element={<PhoneBookLifeCycl/>}/>
+        <Route path="phonebook" element={<PhoneBookLifeCycl />} />
+        <Route path="gallery" element={<GallerySearch />} />
         <Route path="article" element={<Article/>} />
       </Route>
       

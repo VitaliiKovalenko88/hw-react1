@@ -4,10 +4,11 @@ import axios from "axios";
   const response = axios.get(`/search?query=${searchQuery}`);
   const data = await response;
   const {hits} = data.data;
-  console.log(hits)
-  return data.data.hits;
+  
+  return hits;
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
 fetchArticlesWithQuery
 };
