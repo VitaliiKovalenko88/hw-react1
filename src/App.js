@@ -5,7 +5,7 @@ import { HomePage } from "pages/Home";
 import { WorkDetails } from "pages/WorkDetails";
 import Feedback from "components/hw-2/Feedback/Feedback/Feedback";
 import PhoneBook from "components/hw-2/PhoneBook/PhoneBook/PhoneBook";
-import PhoneBookLifeCycl from "components/hw_3/PhoneBook/PhonebookLifecycl/PhonebookLifrCycl";
+import PhoneBookLifeCycl from "components/hw_3/PhoneBook/PhonebookLifecycl/PhonebookLifeCycl";
 import Article from "components/hw_3/Module_Practice/Article";
 import GallerySearch from "components/hw_3/GallerySearch/GallerySearch";
 
