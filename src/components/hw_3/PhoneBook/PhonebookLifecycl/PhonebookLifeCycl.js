@@ -16,6 +16,26 @@ export default class PhoneBookLifeCycl extends Component {
     filter: '',
   }
 
+  componentDidMount() {
+    const contacts = localStorage.getItem("contacts");
+    const parseContacts = JSON.parse(contacts);
+
+    if (parseContacts) {
+      this.setState({contacts: parseContacts})
+    }
+    
+  }
+
+  componentDidUpdate(prevState) {
+    const nextContacts = this.state.contacts;
+    const prevContacts = prevState.contacts;
+    console.log(this.state.contacts);
+    console.log(nextContacts);
+    if (nextContacts !== prevContacts) {
+     localStorage.setItem('contacts', JSON.stringify(nextContacts))
+    }
+  }
+
   generateId = () => nanoid();
 
   addContact = (name, number, value) => {
@@ -56,7 +76,7 @@ export default class PhoneBookLifeCycl extends Component {
 
   render() {
     const visibleContacts = this.getVisibleContacts();
-
+    
     return (
       <div>
         <h1>Phonebook</h1>

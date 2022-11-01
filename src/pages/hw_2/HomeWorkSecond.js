@@ -5,7 +5,8 @@ const HomeWorkSecond = () => {
   return <>
     <ul>
     
-    <li key={'phoneBook'} ><Link to={'phoneBook'} >Phonebook</Link></li><li key={'feedback'}><Link to={'feedback'}>Feedback</Link></li>
+      <li key={'phoneBook1'} ><Link to={'phoneBook1'} >Phonebook</Link></li>
+      <li key={'feedback'}><Link to={'feedback'}>Feedback</Link></li>
   </ul>
   <Outlet/></>
 }
