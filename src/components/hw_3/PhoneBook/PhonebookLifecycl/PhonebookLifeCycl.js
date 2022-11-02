@@ -29,8 +29,7 @@ export default class PhoneBookLifeCycl extends Component {
   componentDidUpdate(prevState) {
     const nextContacts = this.state.contacts;
     const prevContacts = prevState.contacts;
-    console.log(this.state.contacts);
-    console.log(nextContacts);
+    
     if (nextContacts !== prevContacts) {
      localStorage.setItem('contacts', JSON.stringify(nextContacts))
     }
