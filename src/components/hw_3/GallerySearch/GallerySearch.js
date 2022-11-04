@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import { Searchbar } from "./Searchbar/Searchbar";
 
 export default class GallerySearch extends Component {
 
   
   render() {
-   return <div>
-    <h1>LOVE YOU 10000000 RAZ</h1>
-  </div>
+   return <>
+    <Searchbar/>
+  </>
 }
 };
