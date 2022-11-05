@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getImageFromQuery } from "services/api";
+import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { Searchbar } from "./Searchbar/Searchbar";
 
 export default class GallerySearch extends Component {
@@ -43,7 +44,8 @@ export default class GallerySearch extends Component {
 
   render() {
    return <>
-    <Searchbar onSubmit={this.hundleFormSubmite} />
+     <Searchbar onSubmit={this.hundleFormSubmite} />
+     <ImageGallery gallery={this.state.gallery} />
   </>
 }
 };
