@@ -30,7 +30,15 @@ export default class GallerySearch extends Component {
     const { imgName, page } = this.state;
 
     const { hits } = await getImageFromQuery(imgName, page);
-    console.log(hits);
+    if (hits.length === 0) {
+      this.setState({
+        gallery: []
+      });
+    }
+
+    this.setState(prevState => ({
+      gallery:[...prevState.gallery, ...hits]
+    }))
   }
 
   render() {
