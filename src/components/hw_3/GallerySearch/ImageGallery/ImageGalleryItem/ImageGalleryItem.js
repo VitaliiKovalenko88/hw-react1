@@ -1,5 +1,5 @@
 export const ImageGalleryItem = () => {
-  return <li class="gallery-item">
+  return <li>
 <img src="" alt="" />
 </li>
 };
