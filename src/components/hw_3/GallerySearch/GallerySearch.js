@@ -16,12 +16,14 @@ export default class GallerySearch extends Component {
     try {
       const nextName = this.state.imgName;
       const prevName = prevState.imgName;
+      const nextPage = this.state.page;
+      const prevPage = prevState.page;
       
    
-      if (nextName !== prevName) {
+      if (nextName !== prevName || nextPage!==prevPage) {
         this.createGallery();
-        this.setState({ isLoading: false })
-        console.log("render")
+        this.setState({ isLoading: false });
+        console.log("render");
       };
     }
     catch(error) {
