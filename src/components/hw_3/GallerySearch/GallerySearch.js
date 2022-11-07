@@ -11,6 +11,7 @@ export default class GallerySearch extends Component {
     gallery: [],
     page: 1,
     isLoading: false,
+    showModal: false,
   };
 
   async componentDidUpdate(prevProps, prevState) {
@@ -66,16 +67,20 @@ export default class GallerySearch extends Component {
       page: prevState.page + 1,
     }));
   };
+  
+  openModal = e => {
+    console.dir(e.target.dataset.img);
+  };
 
   render() {
-    const { isLoading, gallery } = this.state;
+    const { isLoading, gallery, showModal } = this.state;
     const isGallery = gallery.length;
-   return <>
-     <Searchbar onSubmit={this.hundleFormSubmite} />
-     {isGallery ? <ImageGallery gallery={gallery}/> : null}
-     {isLoading ? <Loader /> : null }
-     {isGallery ? <Button onLoadMore={this.loadMore} /> : null}
-     
-  </>
+    return (
+      <>
+        <Searchbar onSubmit={this.hundleFormSubmite} />
+        {isGallery ? <ImageGallery gallery={gallery} onClick={this.openModal} /> : null}
+        {isLoading ? <Loader /> : null}
+        {isGallery ? <Button onLoadMore={this.loadMore} /> : null}
+      </>);
   };
 };
