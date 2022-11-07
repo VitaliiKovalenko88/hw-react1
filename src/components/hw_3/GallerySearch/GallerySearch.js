@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getImageFromQuery } from "services/api";
 import { Button } from "./Button/Button";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
+import { Loader } from "./Loader/Loader";
 import { Searchbar } from "./Searchbar/Searchbar";
 
 export default class GallerySearch extends Component {
@@ -13,6 +14,7 @@ export default class GallerySearch extends Component {
   };
 
   async componentDidUpdate(prevProps, prevState) {
+    
     try {
       const nextName = this.state.imgName;
       const prevName = prevState.imgName;
@@ -20,15 +22,16 @@ export default class GallerySearch extends Component {
       const prevPage = prevState.page;
       
    
-      if (nextName !== prevName || nextPage!==prevPage) {
+      if (nextName !== prevName || nextPage !== prevPage) {
+        this.setState({ isLoading: true }); 
         this.createGallery();
-        this.setState({ isLoading: false });
-        console.log("render");
+               
       };
     }
     catch(error) {
       console.log(error.message)
       this.setState({ isLoading: false });
+      
     }
    
   };
@@ -42,7 +45,6 @@ export default class GallerySearch extends Component {
   };
   
   createGallery = async () => {
-    this.setState({ isLoading: true });
     const { imgName, page } = this.state;
     const { hits } = await getImageFromQuery(imgName, page);
 
@@ -50,26 +52,30 @@ export default class GallerySearch extends Component {
       this.setState({
         gallery: []
       });
+      return;
     };
 
     this.setState(prevState => ({
       gallery: [...prevState.gallery, ...hits]
     }));
-    
+    this.setState({ isLoading: false });
   };
 
   loadMore = () => {
     this.setState(prevState => ({
-      page: prevState.page+1
-    }))
+      page: prevState.page + 1,
+    }));
   };
 
   render() {
-    const {gallery} = this.state;
+    const { isLoading, gallery } = this.state;
+    const isGallery = gallery.length;
    return <>
      <Searchbar onSubmit={this.hundleFormSubmite} />
-     <ImageGallery gallery={gallery} />
-     {gallery.length > 0 ? <Button  onLoadMore={this.loadMore} /> : null}  
+     {isGallery ? <ImageGallery gallery={gallery}/> : null}
+     {isLoading ? <Loader /> : null }
+     {isGallery ? <Button onLoadMore={this.loadMore} /> : null}
+     
   </>
   };
 };
