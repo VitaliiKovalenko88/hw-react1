@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getImageFromQuery } from "services/api";
+import { Button } from "./Button/Button";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { Searchbar } from "./Searchbar/Searchbar";
 
@@ -7,13 +8,15 @@ export default class GallerySearch extends Component {
   state = {
     imgName: '',
     gallery: [],
-    page:1,
+    page: 1,
+    
   }
 
  async componentDidUpdate(prevProps, prevState) {
    const nextName = this.state.imgName;
    const prevName = prevState.imgName;
-   
+   this.setState();
+
    if (nextName !== prevName) {
      this.createGallery();
    }
@@ -46,6 +49,7 @@ export default class GallerySearch extends Component {
    return <>
      <Searchbar onSubmit={this.hundleFormSubmite} />
      <ImageGallery gallery={this.state.gallery} />
+     <Button/>  
   </>
 }
 };
