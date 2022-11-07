@@ -1,6 +1,6 @@
-export const ImageGalleryItem = ({ url, tags}) => {
+export const ImageGalleryItem = ({ url, tags, modalUrl}) => {
   return (
     <li>
-      <img src={url} alt={tags} width='200' />
+      <img data-image={modalUrl} src={url} alt={tags} width='200' />
     </li>)
 };

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
 
+const modalRoot = document.querySelector('#modal-root')
+
 export class Modal extends Component {
+
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeydown);
+    window.addEventListener('keydown', this.handleKeydown,);
   };
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeydown);
+    window.removeEventListener('keydown', this.handleKeydown,);
   };
 
   handleKeydown = e => {
@@ -19,16 +22,18 @@ export class Modal extends Component {
   handleBackroup = e => {
     if (e.currentTarget === e.target) {
       this.props.onClose();
-    };
+    }
   };
 
   render () {
     return createPortal(
-      <div class="overlay">
-        <div class="modal">
-          <img src={this.props.url} alt={this.props.tags} />
+      <div onClick={this.handleBackroup}>
+        <div>
+          <img src={this.props.url} alt={this.props.url} />
         </div>
-      </div>);
+      </div>,
+      modalRoot,
+    );
   };
   
 };

@@ -3,6 +3,7 @@ import { getImageFromQuery } from "services/api";
 import { Button } from "./Button/Button";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { Loader } from "./Loader/Loader";
+import { Modal } from "./Modal/Modal";
 import { Searchbar } from "./Searchbar/Searchbar";
 
 export default class GallerySearch extends Component {
@@ -12,6 +13,7 @@ export default class GallerySearch extends Component {
     page: 1,
     isLoading: false,
     showModal: false,
+    largeImage:'',
   };
 
   async componentDidUpdate(prevProps, prevState) {
@@ -69,15 +71,22 @@ export default class GallerySearch extends Component {
   };
   
   openModal = e => {
-    console.dir(e.target.dataset.img);
+    console.log(e.target.dataset);
+    this.setState({ largeImage: e.target.dataset.image });
+    this.togleModal();
+  };
+
+  togleModal = () => {
+    this.setState(({ showModal }) =>({ showModal: !showModal}));
   };
 
   render() {
-    const { isLoading, gallery, showModal } = this.state;
+    const { isLoading, gallery, showModal,largeImage } = this.state;
     const isGallery = gallery.length;
     return (
       <>
         <Searchbar onSubmit={this.hundleFormSubmite} />
+        {showModal && (<Modal onClick={this.togleModal} onClose={this.togleModal} url={largeImage } />)}
         {isGallery ? <ImageGallery gallery={gallery} onClick={this.openModal} /> : null}
         {isLoading ? <Loader /> : null}
         {isGallery ? <Button onLoadMore={this.loadMore} /> : null}
