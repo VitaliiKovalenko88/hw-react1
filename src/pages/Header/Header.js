@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
+import { Header } from "./Header.styled";
 
-
-export const Header = () => {
+export const HeaderApp = () => {
   return (
-    <header>
+    <Header>
       <nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/homeWorks">Home Works</NavLink>
       </nav>
-    </header>
+    </Header>
   );
 };

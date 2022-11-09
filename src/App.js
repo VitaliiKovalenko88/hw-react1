@@ -7,13 +7,13 @@ import PhoneBook from "components/hw-2/PhoneBook/PhoneBook/PhoneBook";
 import PhoneBookLifeCycl from "components/hw_3/PhoneBook/PhonebookLifecycl/PhonebookLifeCycl";
 import Article from "components/hw_3/Module_Practice/Article";
 import GallerySearch from "components/hw_3/GallerySearch/GallerySearch";
-import { Header } from "pages/Header/Header";
+import { HeaderApp } from "pages/Header/Header";
 
 
 export const App = () => {
   return (
     <div>
-      <Header/>
+      <HeaderApp/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/homeWorks" element={<HomeWorks />} />
