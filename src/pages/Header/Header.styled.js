@@ -15,6 +15,7 @@ export const Link = styled(NavLink)`
   display: flex;
   padding-top: 32px;
   padding-bottom: 32px;
+  margin-left: 50px;
   transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
