@@ -24,5 +24,7 @@ export const Link = styled(NavLink)`
   font-size: 16px;
   line-height: 1.17;
   letter-spacing: 0.02em;
+
+  :fokus
 `;
 
