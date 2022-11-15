@@ -1,7 +1,7 @@
-import Section from "components/hw-2/Section/Section";
+
 import styled from "styled-components";
 
-export const Gallery = styled(Section)`
+export const Gallery = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16px;

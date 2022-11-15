@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import { SearchForm, SearchFormButton, SearchFormInput, StyledSearchbar } from "./SearchBar.styled";
+import { ImSearch } from 'react-icons/im';
 
 export class Searchbar extends Component {
   state = {
@@ -24,12 +26,12 @@ export class Searchbar extends Component {
 
   render() {
     return (
-      <header>
-        <form onSubmit={this.hundleSubmitName} >
-          <button type="submit">
-            <span>Search</span>
-          </button>
-          <input
+      <StyledSearchbar>
+        <SearchForm onSubmit={this.hundleSubmitName} >
+          <SearchFormButton type="submit">
+            <ImSearch/>
+          </SearchFormButton>
+          <SearchFormInput
             onChange={this.hundleChangeName}
             type="text"
             autoComplete="off"
@@ -37,8 +39,8 @@ export class Searchbar extends Component {
             placeholder="Search images and photos"
             value={this.state.name}
           />
-        </form>
-      </header>)
+        </SearchForm>
+      </StyledSearchbar>)
   };
   
 }
