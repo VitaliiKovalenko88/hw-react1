@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getImageFromQuery } from "services/api";
 import { Button } from "./Button/Button";
+import { Gallery } from "./GallerySearch.styled";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { Loader } from "./Loader/Loader";
 import { Modal } from "./Modal/Modal";
@@ -71,7 +72,6 @@ export default class GallerySearch extends Component {
   };
   
   openModal = e => {
-    console.log(e.target.dataset);
     this.setState({ largeImage: e.target.dataset.image });
     this.togleModal();
   };
@@ -84,12 +84,12 @@ export default class GallerySearch extends Component {
     const { isLoading, gallery, showModal,largeImage } = this.state;
     const isGallery = gallery.length;
     return (
-      <>
+      <Gallery>
         <Searchbar onSubmit={this.hundleFormSubmite} />
         {showModal && (<Modal onClick={this.togleModal} onClose={this.togleModal} url={largeImage } />)}
         {isGallery ? <ImageGallery gallery={gallery} onClick={this.openModal} /> : null}
         {isLoading ? <Loader /> : null}
         {isGallery ? <Button onLoadMore={this.loadMore} /> : null}
-      </>);
+      </Gallery>);
   };
 };
